@@ -1,0 +1,19 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.container {
+    text-align: center;
+    max-width: 800px;
+}
+
+.botoes{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.game-status {
+    font-size: 25px;
+}

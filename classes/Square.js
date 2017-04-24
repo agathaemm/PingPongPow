@@ -25,7 +25,7 @@ function Square( w, h, gameover ) {
     this.horizontalDirection = -1;
 
     // velocidade
-    this.speed = 10;
+    this.speed = 13;
 
     // cor do quadrado
     this.color = 'white';

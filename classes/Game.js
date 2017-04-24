@@ -15,13 +15,14 @@ function Game() {
         // instancia os componentes do jogo
         var q  = new Square( 10, 10, function( q ) {
 
+            // finaliza o jogo
+            _this.Pause();
+
             // verifica a direção do quadrado
             if ( q.verticalDirection != -1 ) {
-                console.log( 'Jogador 1 ganhou' );
-                _this.Pause();
+                _this.GameStatus( 'Jogador 1 ganhou' );
             } else {
-                console.log( 'Jogador 2 ganhou' );
-                _this.Pause();
+                _this.GameStatus( 'Jogador 2 ganhou' );
             }
 
         });
@@ -43,6 +44,7 @@ function Game() {
         delete _this.world;
         _this.NewGame();
         _this.world.start();
+        _this.GameStatus( 'Jogando ...' );
     }
 
     // pausa o jogo
@@ -50,11 +52,16 @@ function Game() {
 
         // muda o status do mundo
         if ( _this.world.running ) {
-            console.log( 'Pausou' );
+            _this.GameStatus( 'Jogo pausado' );
             _this.world.stop(); 
         } else {
-            console.log( 'Iniciou' );
+            _this.GameStatus( 'Jogando ...' );
             _this.world.start();
         }
+    }
+
+    // seta o status do jogo
+    this.GameStatus = function( status ) {
+        document.getElementById('GameStatus').innerHTML = status;
     }
 }
